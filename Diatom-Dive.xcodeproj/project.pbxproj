@@ -1,0 +1,755 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F75452252BB6180700208B92 /* Diatom_DiveApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452242BB6180700208B92 /* Diatom_DiveApp.swift */; };
+		F75452272BB6180700208B92 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452262BB6180700208B92 /* ContentView.swift */; };
+		F75452292BB6180800208B92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F75452282BB6180800208B92 /* Assets.xcassets */; };
+		F754522C2BB6180800208B92 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F754522B2BB6180800208B92 /* Preview Assets.xcassets */; };
+		F75452362BB6180800208B92 /* Diatom_DiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452352BB6180800208B92 /* Diatom_DiveTests.swift */; };
+		F75452402BB6180800208B92 /* Diatom_DiveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F754523F2BB6180800208B92 /* Diatom_DiveUITests.swift */; };
+		F75452422BB6180800208B92 /* Diatom_DiveUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452412BB6180800208B92 /* Diatom_DiveUITestsLaunchTests.swift */; };
+		F75452502BB618C100208B92 /* StartupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F754524F2BB618C100208B92 /* StartupView.swift */; };
+		F75452522BB618D500208B92 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452512BB618D500208B92 /* LoginView.swift */; };
+		F75452542BB6191A00208B92 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452532BB6191A00208B92 /* HomeView.swift */; };
+		F75452562BB6193300208B92 /* DatabaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452552BB6193300208B92 /* DatabaseView.swift */; };
+		F75452582BB6194200208B92 /* UploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452572BB6194200208B92 /* UploadView.swift */; };
+		F754525A2BB6195800208B92 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452592BB6195800208B92 /* MapView.swift */; };
+		F754525C2BB6197000208B92 /* ViewerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F754525B2BB6197000208B92 /* ViewerView.swift */; };
+		F754525E2BB6197C00208B92 /* ResourcesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F754525D2BB6197C00208B92 /* ResourcesView.swift */; };
+		F75452602BB6198B00208B92 /* StudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F754525F2BB6198B00208B92 /* StudyView.swift */; };
+		F75452652BB61A0700208B92 /* BiologyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452642BB61A0700208B92 /* BiologyView.swift */; };
+		F75452672BB61A2100208B92 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452662BB61A2100208B92 /* HistoryView.swift */; };
+		F75452692BB61A3000208B92 /* EcologyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452682BB61A3000208B92 /* EcologyView.swift */; };
+		F754526B2BB61A4000208B92 /* DiscoveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F754526A2BB61A4000208B92 /* DiscoveryView.swift */; };
+		F754526D2BB61A4E00208B92 /* ResearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F754526C2BB61A4E00208B92 /* ResearchView.swift */; };
+		F754526F2BB61A5800208B92 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F754526E2BB61A5800208B92 /* QuizView.swift */; };
+		F75452712BB61A7500208B92 /* ArticlesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452702BB61A7500208B92 /* ArticlesView.swift */; };
+		F75452732BB61A8000208B92 /* AppsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452722BB61A8000208B92 /* AppsView.swift */; };
+		F75452752BB61A9000208B92 /* VideosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452742BB61A9000208B92 /* VideosView.swift */; };
+		F75452772BB61A9C00208B92 /* PapersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452762BB61A9C00208B92 /* PapersView.swift */; };
+		F75452792BB61AA700208B92 /* GlossaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452782BB61AA700208B92 /* GlossaryView.swift */; };
+		F754527B2BB61AB700208B92 /* ReferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F754527A2BB61AB700208B92 /* ReferencesView.swift */; };
+		F754527E2BB61AFB00208B92 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F754527D2BB61AFB00208B92 /* LoginViewModel.swift */; };
+		F75452832BB61B6900208B92 /* DiatomRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452822BB61B6900208B92 /* DiatomRecord.swift */; };
+		F75452852BB61B8B00208B92 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452842BB61B8B00208B92 /* FirebaseService.swift */; };
+		F75452872BB61BA600208B92 /* GoogleMapsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452862BB61BA600208B92 /* GoogleMapsService.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F75452322BB6180800208B92 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F75452192BB6180700208B92 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F75452202BB6180700208B92;
+			remoteInfo = "Diatom-Dive";
+		};
+		F754523C2BB6180800208B92 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F75452192BB6180700208B92 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F75452202BB6180700208B92;
+			remoteInfo = "Diatom-Dive";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F75452212BB6180700208B92 /* Diatom-Dive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Diatom-Dive.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F75452242BB6180700208B92 /* Diatom_DiveApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diatom_DiveApp.swift; sourceTree = "<group>"; };
+		F75452262BB6180700208B92 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F75452282BB6180800208B92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F754522B2BB6180800208B92 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F75452312BB6180800208B92 /* Diatom-DiveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Diatom-DiveTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F75452352BB6180800208B92 /* Diatom_DiveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diatom_DiveTests.swift; sourceTree = "<group>"; };
+		F754523B2BB6180800208B92 /* Diatom-DiveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Diatom-DiveUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F754523F2BB6180800208B92 /* Diatom_DiveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diatom_DiveUITests.swift; sourceTree = "<group>"; };
+		F75452412BB6180800208B92 /* Diatom_DiveUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diatom_DiveUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F754524F2BB618C100208B92 /* StartupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupView.swift; sourceTree = "<group>"; };
+		F75452512BB618D500208B92 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		F75452532BB6191A00208B92 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		F75452552BB6193300208B92 /* DatabaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseView.swift; sourceTree = "<group>"; };
+		F75452572BB6194200208B92 /* UploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadView.swift; sourceTree = "<group>"; };
+		F75452592BB6195800208B92 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		F754525B2BB6197000208B92 /* ViewerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewerView.swift; sourceTree = "<group>"; };
+		F754525D2BB6197C00208B92 /* ResourcesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesView.swift; sourceTree = "<group>"; };
+		F754525F2BB6198B00208B92 /* StudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyView.swift; sourceTree = "<group>"; };
+		F75452642BB61A0700208B92 /* BiologyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiologyView.swift; sourceTree = "<group>"; };
+		F75452662BB61A2100208B92 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		F75452682BB61A3000208B92 /* EcologyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcologyView.swift; sourceTree = "<group>"; };
+		F754526A2BB61A4000208B92 /* DiscoveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryView.swift; sourceTree = "<group>"; };
+		F754526C2BB61A4E00208B92 /* ResearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResearchView.swift; sourceTree = "<group>"; };
+		F754526E2BB61A5800208B92 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
+		F75452702BB61A7500208B92 /* ArticlesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesView.swift; sourceTree = "<group>"; };
+		F75452722BB61A8000208B92 /* AppsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsView.swift; sourceTree = "<group>"; };
+		F75452742BB61A9000208B92 /* VideosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosView.swift; sourceTree = "<group>"; };
+		F75452762BB61A9C00208B92 /* PapersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PapersView.swift; sourceTree = "<group>"; };
+		F75452782BB61AA700208B92 /* GlossaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlossaryView.swift; sourceTree = "<group>"; };
+		F754527A2BB61AB700208B92 /* ReferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferencesView.swift; sourceTree = "<group>"; };
+		F754527D2BB61AFB00208B92 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		F75452822BB61B6900208B92 /* DiatomRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiatomRecord.swift; sourceTree = "<group>"; };
+		F75452842BB61B8B00208B92 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
+		F75452862BB61BA600208B92 /* GoogleMapsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsService.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F754521E2BB6180700208B92 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F754522E2BB6180800208B92 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F75452382BB6180800208B92 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F75452182BB6180700208B92 = {
+			isa = PBXGroup;
+			children = (
+				F75452232BB6180700208B92 /* Diatom-Dive */,
+				F75452342BB6180800208B92 /* Diatom-DiveTests */,
+				F754523E2BB6180800208B92 /* Diatom-DiveUITests */,
+				F75452222BB6180700208B92 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F75452222BB6180700208B92 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F75452212BB6180700208B92 /* Diatom-Dive.app */,
+				F75452312BB6180800208B92 /* Diatom-DiveTests.xctest */,
+				F754523B2BB6180800208B92 /* Diatom-DiveUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F75452232BB6180700208B92 /* Diatom-Dive */ = {
+			isa = PBXGroup;
+			children = (
+				F75452242BB6180700208B92 /* Diatom_DiveApp.swift */,
+				F75452262BB6180700208B92 /* ContentView.swift */,
+				F754524E2BB618A700208B92 /* Views */,
+				F754527C2BB61AD900208B92 /* ViewModels */,
+				F75452812BB61B5400208B92 /* Models */,
+				F754527F2BB61B2100208B92 /* Services */,
+				F75452802BB61B3900208B92 /* Utilities */,
+				F75452282BB6180800208B92 /* Assets.xcassets */,
+				F754522A2BB6180800208B92 /* Preview Content */,
+			);
+			path = "Diatom-Dive";
+			sourceTree = "<group>";
+		};
+		F754522A2BB6180800208B92 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F754522B2BB6180800208B92 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F75452342BB6180800208B92 /* Diatom-DiveTests */ = {
+			isa = PBXGroup;
+			children = (
+				F75452352BB6180800208B92 /* Diatom_DiveTests.swift */,
+			);
+			path = "Diatom-DiveTests";
+			sourceTree = "<group>";
+		};
+		F754523E2BB6180800208B92 /* Diatom-DiveUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F754523F2BB6180800208B92 /* Diatom_DiveUITests.swift */,
+				F75452412BB6180800208B92 /* Diatom_DiveUITestsLaunchTests.swift */,
+			);
+			path = "Diatom-DiveUITests";
+			sourceTree = "<group>";
+		};
+		F754524E2BB618A700208B92 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F754524F2BB618C100208B92 /* StartupView.swift */,
+				F75452512BB618D500208B92 /* LoginView.swift */,
+				F75452532BB6191A00208B92 /* HomeView.swift */,
+				F75452612BB6199A00208B92 /* Home Navigation */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F75452612BB6199A00208B92 /* Home Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				F75452552BB6193300208B92 /* DatabaseView.swift */,
+				F75452572BB6194200208B92 /* UploadView.swift */,
+				F75452592BB6195800208B92 /* MapView.swift */,
+				F754525B2BB6197000208B92 /* ViewerView.swift */,
+				F754525D2BB6197C00208B92 /* ResourcesView.swift */,
+				F75452622BB619D800208B92 /* Resources Navigation */,
+				F754525F2BB6198B00208B92 /* StudyView.swift */,
+				F75452632BB619E800208B92 /* Study Navigation */,
+			);
+			path = "Home Navigation";
+			sourceTree = "<group>";
+		};
+		F75452622BB619D800208B92 /* Resources Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				F75452642BB61A0700208B92 /* BiologyView.swift */,
+				F75452662BB61A2100208B92 /* HistoryView.swift */,
+				F75452682BB61A3000208B92 /* EcologyView.swift */,
+				F754526A2BB61A4000208B92 /* DiscoveryView.swift */,
+				F754526C2BB61A4E00208B92 /* ResearchView.swift */,
+				F754526E2BB61A5800208B92 /* QuizView.swift */,
+			);
+			path = "Resources Navigation";
+			sourceTree = "<group>";
+		};
+		F75452632BB619E800208B92 /* Study Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				F75452702BB61A7500208B92 /* ArticlesView.swift */,
+				F75452722BB61A8000208B92 /* AppsView.swift */,
+				F75452742BB61A9000208B92 /* VideosView.swift */,
+				F75452762BB61A9C00208B92 /* PapersView.swift */,
+				F75452782BB61AA700208B92 /* GlossaryView.swift */,
+				F754527A2BB61AB700208B92 /* ReferencesView.swift */,
+			);
+			path = "Study Navigation";
+			sourceTree = "<group>";
+		};
+		F754527C2BB61AD900208B92 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F754527D2BB61AFB00208B92 /* LoginViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F754527F2BB61B2100208B92 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F75452842BB61B8B00208B92 /* FirebaseService.swift */,
+				F75452862BB61BA600208B92 /* GoogleMapsService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		F75452802BB61B3900208B92 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		F75452812BB61B5400208B92 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F75452822BB61B6900208B92 /* DiatomRecord.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F75452202BB6180700208B92 /* Diatom-Dive */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F75452452BB6180800208B92 /* Build configuration list for PBXNativeTarget "Diatom-Dive" */;
+			buildPhases = (
+				F754521D2BB6180700208B92 /* Sources */,
+				F754521E2BB6180700208B92 /* Frameworks */,
+				F754521F2BB6180700208B92 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Diatom-Dive";
+			productName = "Diatom-Dive";
+			productReference = F75452212BB6180700208B92 /* Diatom-Dive.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F75452302BB6180800208B92 /* Diatom-DiveTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F75452482BB6180800208B92 /* Build configuration list for PBXNativeTarget "Diatom-DiveTests" */;
+			buildPhases = (
+				F754522D2BB6180800208B92 /* Sources */,
+				F754522E2BB6180800208B92 /* Frameworks */,
+				F754522F2BB6180800208B92 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F75452332BB6180800208B92 /* PBXTargetDependency */,
+			);
+			name = "Diatom-DiveTests";
+			productName = "Diatom-DiveTests";
+			productReference = F75452312BB6180800208B92 /* Diatom-DiveTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F754523A2BB6180800208B92 /* Diatom-DiveUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F754524B2BB6180800208B92 /* Build configuration list for PBXNativeTarget "Diatom-DiveUITests" */;
+			buildPhases = (
+				F75452372BB6180800208B92 /* Sources */,
+				F75452382BB6180800208B92 /* Frameworks */,
+				F75452392BB6180800208B92 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F754523D2BB6180800208B92 /* PBXTargetDependency */,
+			);
+			name = "Diatom-DiveUITests";
+			productName = "Diatom-DiveUITests";
+			productReference = F754523B2BB6180800208B92 /* Diatom-DiveUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F75452192BB6180700208B92 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					F75452202BB6180700208B92 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					F75452302BB6180800208B92 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = F75452202BB6180700208B92;
+					};
+					F754523A2BB6180800208B92 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = F75452202BB6180700208B92;
+					};
+				};
+			};
+			buildConfigurationList = F754521C2BB6180700208B92 /* Build configuration list for PBXProject "Diatom-Dive" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F75452182BB6180700208B92;
+			productRefGroup = F75452222BB6180700208B92 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F75452202BB6180700208B92 /* Diatom-Dive */,
+				F75452302BB6180800208B92 /* Diatom-DiveTests */,
+				F754523A2BB6180800208B92 /* Diatom-DiveUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F754521F2BB6180700208B92 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F754522C2BB6180800208B92 /* Preview Assets.xcassets in Resources */,
+				F75452292BB6180800208B92 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F754522F2BB6180800208B92 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F75452392BB6180800208B92 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F754521D2BB6180700208B92 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F754527B2BB61AB700208B92 /* ReferencesView.swift in Sources */,
+				F75452652BB61A0700208B92 /* BiologyView.swift in Sources */,
+				F75452692BB61A3000208B92 /* EcologyView.swift in Sources */,
+				F75452272BB6180700208B92 /* ContentView.swift in Sources */,
+				F75452872BB61BA600208B92 /* GoogleMapsService.swift in Sources */,
+				F75452712BB61A7500208B92 /* ArticlesView.swift in Sources */,
+				F754525C2BB6197000208B92 /* ViewerView.swift in Sources */,
+				F754526B2BB61A4000208B92 /* DiscoveryView.swift in Sources */,
+				F75452792BB61AA700208B92 /* GlossaryView.swift in Sources */,
+				F754526D2BB61A4E00208B92 /* ResearchView.swift in Sources */,
+				F754525A2BB6195800208B92 /* MapView.swift in Sources */,
+				F75452672BB61A2100208B92 /* HistoryView.swift in Sources */,
+				F75452732BB61A8000208B92 /* AppsView.swift in Sources */,
+				F75452562BB6193300208B92 /* DatabaseView.swift in Sources */,
+				F754525E2BB6197C00208B92 /* ResourcesView.swift in Sources */,
+				F75452772BB61A9C00208B92 /* PapersView.swift in Sources */,
+				F75452502BB618C100208B92 /* StartupView.swift in Sources */,
+				F75452522BB618D500208B92 /* LoginView.swift in Sources */,
+				F75452602BB6198B00208B92 /* StudyView.swift in Sources */,
+				F75452582BB6194200208B92 /* UploadView.swift in Sources */,
+				F75452752BB61A9000208B92 /* VideosView.swift in Sources */,
+				F75452852BB61B8B00208B92 /* FirebaseService.swift in Sources */,
+				F75452832BB61B6900208B92 /* DiatomRecord.swift in Sources */,
+				F754527E2BB61AFB00208B92 /* LoginViewModel.swift in Sources */,
+				F75452542BB6191A00208B92 /* HomeView.swift in Sources */,
+				F754526F2BB61A5800208B92 /* QuizView.swift in Sources */,
+				F75452252BB6180700208B92 /* Diatom_DiveApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F754522D2BB6180800208B92 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F75452362BB6180800208B92 /* Diatom_DiveTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F75452372BB6180800208B92 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F75452422BB6180800208B92 /* Diatom_DiveUITestsLaunchTests.swift in Sources */,
+				F75452402BB6180800208B92 /* Diatom_DiveUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F75452332BB6180800208B92 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F75452202BB6180700208B92 /* Diatom-Dive */;
+			targetProxy = F75452322BB6180800208B92 /* PBXContainerItemProxy */;
+		};
+		F754523D2BB6180800208B92 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F75452202BB6180700208B92 /* Diatom-Dive */;
+			targetProxy = F754523C2BB6180800208B92 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F75452432BB6180800208B92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F75452442BB6180800208B92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F75452462BB6180800208B92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Diatom-Dive/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = DiatomDive;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.uwp.spring24.Diatom-Dive";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F75452472BB6180800208B92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Diatom-Dive/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = DiatomDive;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.uwp.spring24.Diatom-Dive";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F75452492BB6180800208B92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.uwp.spring24.Diatom-DiveTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Diatom-Dive.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Diatom-Dive";
+			};
+			name = Debug;
+		};
+		F754524A2BB6180800208B92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.uwp.spring24.Diatom-DiveTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Diatom-Dive.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Diatom-Dive";
+			};
+			name = Release;
+		};
+		F754524C2BB6180800208B92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.uwp.spring24.Diatom-DiveUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Diatom-Dive";
+			};
+			name = Debug;
+		};
+		F754524D2BB6180800208B92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.uwp.spring24.Diatom-DiveUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Diatom-Dive";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F754521C2BB6180700208B92 /* Build configuration list for PBXProject "Diatom-Dive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F75452432BB6180800208B92 /* Debug */,
+				F75452442BB6180800208B92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F75452452BB6180800208B92 /* Build configuration list for PBXNativeTarget "Diatom-Dive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F75452462BB6180800208B92 /* Debug */,
+				F75452472BB6180800208B92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F75452482BB6180800208B92 /* Build configuration list for PBXNativeTarget "Diatom-DiveTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F75452492BB6180800208B92 /* Debug */,
+				F754524A2BB6180800208B92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F754524B2BB6180800208B92 /* Build configuration list for PBXNativeTarget "Diatom-DiveUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F754524C2BB6180800208B92 /* Debug */,
+				F754524D2BB6180800208B92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F75452192BB6180700208B92 /* Project object */;
+}
