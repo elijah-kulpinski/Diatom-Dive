@@ -11,7 +11,7 @@ import SwiftUI
 struct Diatom_DiveApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            StartupView() // Application Entry Point
         }
     }
 }

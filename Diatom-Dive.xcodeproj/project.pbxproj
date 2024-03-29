@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		F75452252BB6180700208B92 /* Diatom_DiveApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452242BB6180700208B92 /* Diatom_DiveApp.swift */; };
-		F75452272BB6180700208B92 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452262BB6180700208B92 /* ContentView.swift */; };
 		F75452292BB6180800208B92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F75452282BB6180800208B92 /* Assets.xcassets */; };
 		F754522C2BB6180800208B92 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F754522B2BB6180800208B92 /* Preview Assets.xcassets */; };
 		F75452362BB6180800208B92 /* Diatom_DiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452352BB6180800208B92 /* Diatom_DiveTests.swift */; };
@@ -39,6 +38,10 @@
 		F75452832BB61B6900208B92 /* DiatomRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452822BB61B6900208B92 /* DiatomRecord.swift */; };
 		F75452852BB61B8B00208B92 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452842BB61B8B00208B92 /* FirebaseService.swift */; };
 		F75452872BB61BA600208B92 /* GoogleMapsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452862BB61BA600208B92 /* GoogleMapsService.swift */; };
+		F7D7938F2BB650E100AC5415 /* StartupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D7938E2BB650E100AC5415 /* StartupViewModel.swift */; };
+		F7D793932BB67C3A00AC5415 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D793922BB67C3A00AC5415 /* ChangePasswordView.swift */; };
+		F7D793952BB67C4400AC5415 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D793942BB67C4400AC5415 /* RegisterView.swift */; };
+		F7D793972BB67C5600AC5415 /* GoogleSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D793962BB67C5600AC5415 /* GoogleSignInView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +64,6 @@
 /* Begin PBXFileReference section */
 		F75452212BB6180700208B92 /* Diatom-Dive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Diatom-Dive.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F75452242BB6180700208B92 /* Diatom_DiveApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diatom_DiveApp.swift; sourceTree = "<group>"; };
-		F75452262BB6180700208B92 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F75452282BB6180800208B92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F754522B2BB6180800208B92 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F75452312BB6180800208B92 /* Diatom-DiveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Diatom-DiveTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +96,10 @@
 		F75452822BB61B6900208B92 /* DiatomRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiatomRecord.swift; sourceTree = "<group>"; };
 		F75452842BB61B8B00208B92 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		F75452862BB61BA600208B92 /* GoogleMapsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsService.swift; sourceTree = "<group>"; };
+		F7D7938E2BB650E100AC5415 /* StartupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupViewModel.swift; sourceTree = "<group>"; };
+		F7D793922BB67C3A00AC5415 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
+		F7D793942BB67C4400AC5415 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		F7D793962BB67C5600AC5415 /* GoogleSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,7 +151,6 @@
 			isa = PBXGroup;
 			children = (
 				F75452242BB6180700208B92 /* Diatom_DiveApp.swift */,
-				F75452262BB6180700208B92 /* ContentView.swift */,
 				F754524E2BB618A700208B92 /* Views */,
 				F754527C2BB61AD900208B92 /* ViewModels */,
 				F75452812BB61B5400208B92 /* Models */,
@@ -186,8 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				F754524F2BB618C100208B92 /* StartupView.swift */,
-				F75452512BB618D500208B92 /* LoginView.swift */,
-				F75452532BB6191A00208B92 /* HomeView.swift */,
+				F7D793912BB67C1000AC5415 /* Login Navigation */,
 				F75452612BB6199A00208B92 /* Home Navigation */,
 			);
 			path = Views;
@@ -237,6 +241,7 @@
 		F754527C2BB61AD900208B92 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				F7D7938E2BB650E100AC5415 /* StartupViewModel.swift */,
 				F754527D2BB61AFB00208B92 /* LoginViewModel.swift */,
 			);
 			path = ViewModels;
@@ -264,6 +269,18 @@
 				F75452822BB61B6900208B92 /* DiatomRecord.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F7D793912BB67C1000AC5415 /* Login Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				F75452512BB618D500208B92 /* LoginView.swift */,
+				F75452532BB6191A00208B92 /* HomeView.swift */,
+				F7D793922BB67C3A00AC5415 /* ChangePasswordView.swift */,
+				F7D793942BB67C4400AC5415 /* RegisterView.swift */,
+				F7D793962BB67C5600AC5415 /* GoogleSignInView.swift */,
+			);
+			path = "Login Navigation";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -399,12 +416,12 @@
 				F754527B2BB61AB700208B92 /* ReferencesView.swift in Sources */,
 				F75452652BB61A0700208B92 /* BiologyView.swift in Sources */,
 				F75452692BB61A3000208B92 /* EcologyView.swift in Sources */,
-				F75452272BB6180700208B92 /* ContentView.swift in Sources */,
 				F75452872BB61BA600208B92 /* GoogleMapsService.swift in Sources */,
 				F75452712BB61A7500208B92 /* ArticlesView.swift in Sources */,
 				F754525C2BB6197000208B92 /* ViewerView.swift in Sources */,
 				F754526B2BB61A4000208B92 /* DiscoveryView.swift in Sources */,
 				F75452792BB61AA700208B92 /* GlossaryView.swift in Sources */,
+				F7D793952BB67C4400AC5415 /* RegisterView.swift in Sources */,
 				F754526D2BB61A4E00208B92 /* ResearchView.swift in Sources */,
 				F754525A2BB6195800208B92 /* MapView.swift in Sources */,
 				F75452672BB61A2100208B92 /* HistoryView.swift in Sources */,
@@ -412,6 +429,7 @@
 				F75452562BB6193300208B92 /* DatabaseView.swift in Sources */,
 				F754525E2BB6197C00208B92 /* ResourcesView.swift in Sources */,
 				F75452772BB61A9C00208B92 /* PapersView.swift in Sources */,
+				F7D793932BB67C3A00AC5415 /* ChangePasswordView.swift in Sources */,
 				F75452502BB618C100208B92 /* StartupView.swift in Sources */,
 				F75452522BB618D500208B92 /* LoginView.swift in Sources */,
 				F75452602BB6198B00208B92 /* StudyView.swift in Sources */,
@@ -420,6 +438,8 @@
 				F75452852BB61B8B00208B92 /* FirebaseService.swift in Sources */,
 				F75452832BB61B6900208B92 /* DiatomRecord.swift in Sources */,
 				F754527E2BB61AFB00208B92 /* LoginViewModel.swift in Sources */,
+				F7D793972BB67C5600AC5415 /* GoogleSignInView.swift in Sources */,
+				F7D7938F2BB650E100AC5415 /* StartupViewModel.swift in Sources */,
 				F75452542BB6191A00208B92 /* HomeView.swift in Sources */,
 				F754526F2BB61A5800208B92 /* QuizView.swift in Sources */,
 				F75452252BB6180700208B92 /* Diatom_DiveApp.swift in Sources */,
