@@ -1,11 +1,12 @@
 //
-//  LoginView.swift
+//  HomeView.swift
 //  Diatom-Dive
 //
-//  This view provides the login interface for the Diatom-Dive app. It allows users to sign in
-//  using their username and password or through Google. The view includes a welcoming greeting,
-//  an image of a diatom, input fields for username and password, a login button, options to
-//  register and recover passwords, and an option to sign in with Google.
+//  This view serves as the main home screen of the Diatom-Dive app, offering users a dashboard
+//  with various functionalities such as database management, map viewing, study resources,
+//  and more. The view is designed with user engagement in mind, featuring interactive cards
+//  for each function like Database, Map, Resources, Study, Upload, Viewer, and a logout option.
+//  It provides a quick and efficient way for users to navigate through the app's features.
 //
 //  Created by Eli Kulpinski on 3/28/24.
 //
@@ -13,145 +14,175 @@
 import SwiftUI
 
 struct HomeView: View {
-    @StateObject private var viewModel = LoginViewModel()
-    @State private var rememberMe = false
+  var body: some View {
+    ZStack {
+      // Home background
+      Image("HomeBackground") // HomeBackground asset
+        .resizable()
+        .aspectRatio(contentMode: .fill)
+        .frame(width: 393, height: 852)
+        .offset(x: 0, y: 0)
+      
+      // Top bar decoration
+      HStack(spacing: 0) {
+        Rectangle()
+          .foregroundColor(.clear)
+          .frame(width: 139, height: 5)
+          .background(.black)
+          .cornerRadius(100)
+          .rotationEffect(.degrees(-180))
+      }
+      .padding(EdgeInsets(top: 0, leading: 127, bottom: 0, trailing: 127))
+      .frame(width: 393, height: 21)
+      .offset(x: -2, y: 415.50)
 
-    var body: some View {
-        GeometryReader { geometry in
-            ZStack {
-                Color(red: 0.46, green: 0.67, blue: 0.82)
-                    .edgesIgnoringSafeArea(.all)
-
-                VStack(spacing: 100) {
-                    // Top half of the screen with text and image containers
-                    HStack(spacing: 0) {
-                        // Left container with text
-                        VStack(alignment: .leading, spacing: 5) {
-                            Spacer(minLength: geometry.size.height * 0.1)
-                            Text("Welcome!")
-                                .font(Font.custom("Poppins", size: 25).weight(.light))
-                                .foregroundColor(.black)
-                            
-                            Spacer(minLength: geometry.size.height * 0.05) // Positioning "Sign in to" centrally in height
-                            
-                            Text("Sign in to")
-                                .font(Font.custom("Poppins", size: 34).weight(.medium))
-                                .foregroundColor(.black)
-                            
-                            Text("Diatom Dive")
-                                .font(Font.custom("Poppins", size: 28).weight(.bold))
-                                .foregroundColor(.black)
-                        }
-                        .frame(width: geometry.size.width * 0.4, height: geometry.size.height * 0.2)
-
-                        Spacer()
-
-                        // Right container with diatom image
-                        Image("LoginDiatom")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: geometry.size.width * 0.5, height: geometry.size.height * 0.3)
-                    }
-                    .padding([.leading, .trailing])
-
-                    // Bottom half of the screen with fields and buttons
-                    VStack(spacing: 15) {
-                        TextField("Enter Your Username", text: $viewModel.username)
-                            .padding()
-                            .background(Color(red: 0.91, green: 0.91, blue: 0.91))
-                            .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.black, lineWidth: 1))
-                            .shadow(radius: 2)
-                            .frame(width: geometry.size.width * 0.8)
-                        
-                        SecureField("Enter Your Password", text: $viewModel.password)
-                            .padding()
-                            .background(Color(red: 0.91, green: 0.91, blue: 0.91))
-                            .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.black, lineWidth: 1))
-                            .shadow(radius: 2)
-                            .frame(width: geometry.size.width * 0.8)
-
-                        // Remember Me and Forgot Password
-                        HStack {
-                            Button(action: {
-                                rememberMe.toggle()
-                            }) {
-                                Image(systemName: rememberMe ? "checkmark.square.fill" : "square")
-                                    .foregroundColor(.black)
-                                Text("Remember Me")
-                                    .foregroundColor(.black)
-                            }
-
-                            Spacer()
-
-                            Button("Forgot Password?") {
-                                viewModel.forgotPassword()
-                            }
-                            .font(Font.custom("Poppins", size: 16).weight(.bold))
-                            .foregroundColor(.black)
-                        }
-                        .frame(width: geometry.size.width * 0.8)
-
-                        // Login Button
-                        Button(action: {
-                            viewModel.login()
-                        }) {
-                            Text("Login")
-                                .padding()
-                                .frame(minWidth: 0, maxWidth: .infinity)
-                                .background(Color.black)
-                                .foregroundColor(Color.white)
-                                .cornerRadius(6)
-                        }
-                        .shadow(radius: 2)
-                        .frame(width: geometry.size.width * 0.8)
-
-                        // Registration Prompt
-                        HStack {
-                            Text("Don't Have An Account?")
-                                .font(Font.custom("Poppins", size: 16))
-                                .foregroundColor(.black)
-
-                            Text("Register")
-                                .font(Font.custom("Poppins", size: 18).weight(.black))
-                                .foregroundColor(.black)
-                                .onTapGesture {
-                                    viewModel.register()
-                                }
-                        }
-                    }
-                    .padding(.bottom, geometry.safeAreaInsets.bottom + 20) // Padding for the bottom safe area
-
-                    Spacer()
-                }
-
-                // Sign in with Google Button at the bottom
-                VStack {
-                    Spacer()
-                    Button(action: viewModel.signInWithGoogle) {
-                        Text("Sign in with Google")
-                            .padding()
-                            .frame(width: geometry.size.width * 0.8)
-                            .foregroundColor(.black)
-                            .background(Color(red: 0.91, green: 0.91, blue: 0.91))
-                            .cornerRadius(20)
-                    }
-                    .padding(.bottom, geometry.safeAreaInsets.bottom + 20) // Padding for the bottom safe area
-                }
-            }
+      // Clock in the top bar
+      HStack(spacing: 67) {
+        HStack(spacing: 4) {
+          HStack(spacing: 0) {
+            Text("9")
+              .font(Font.custom("SF Pro Display", size: 14).weight(.medium))
+              .foregroundColor(.black)
+            Text(":")
+              .font(Font.custom("SF Pro Display", size: 14).weight(.medium))
+              .foregroundColor(.black)
+            Text("41")
+              .font(Font.custom("SF Pro Display", size: 14).weight(.medium))
+              .foregroundColor(.black)
+          }
         }
+        HStack(spacing: 8.50) {
+          HStack(alignment: .bottom, spacing: 2) {
+
+          }
+          .frame(width: 18, height: 10)
+          VStack(spacing: -1.08) {
+
+          }
+          .frame(width: 16, height: 11.62)
+          ZStack {
+            Rectangle()
+              .foregroundColor(.clear)
+              .frame(width: 17, height: 8)
+              .background(.black)
+              .cornerRadius(1)
+              .offset(x: -1.50, y: 0)
+          }
+          .frame(width: 24, height: 12)
+        }
+      }
+      .padding(EdgeInsets(top: 16, leading: 35, bottom: 16, trailing: 20))
+      .frame(width: 393, height: 48)
+      .background(Color(red: 1, green: 1, blue: 1).opacity(0))
+      .offset(x: 0, y: -402)
+
+      // Database Card
+      Image("DatabaseCard") // DatabaseCard asset
+        .resizable()
+        .aspectRatio(contentMode: .fill)
+        .frame(width: 175, height: 210)
+        .cornerRadius(20)
+        .offset(x: -95, y: -233)
+        .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.25), radius: 4, y: 4)
+      
+      // Upload Card
+      Image("UploadCard") // UploadCard asset
+        .resizable()
+        .aspectRatio(contentMode: .fill)
+        .frame(width: 175, height: 210)
+        .cornerRadius(20)
+        .offset(x: 95, y: -233)
+        .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.25), radius: 4, y: 4)
+
+      // Map Card
+      Image("MapCard") // MapCard asset
+        .resizable()
+        .aspectRatio(contentMode: .fill)
+        .frame(width: 175, height: 210)
+        .cornerRadius(20)
+        .offset(x: -95, y: -9)
+        .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.25), radius: 4, y: 4)
+
+      // Viewer Card
+      Image("ViewerCard") // ViewerCard asset
+        .resizable()
+        .aspectRatio(contentMode: .fill)
+        .frame(width: 175, height: 210)
+        .cornerRadius(20)
+        .offset(x: 95, y: -9)
+        .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.25), radius: 4, y: 4)
+
+      // Resources Card
+      Image("ResourcesCard") // ResourcesCard asset
+        .resizable()
+        .aspectRatio(contentMode: .fill)
+        .frame(width: 175, height: 210)
+        .cornerRadius(20)
+        .offset(x: -95, y: 215)
+        .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.25), radius: 4, y: 4)
+
+      // Study Card
+      Image("StudyCard") // StudyCard asset
+        .resizable()
+        .aspectRatio(contentMode: .fill)
+        .frame(width: 175, height: 210)
+        .cornerRadius(20)
+        .offset(x: 95, y: 215)
+        .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.25), radius: 4, y: 4)
+
+      // Text Labels for Cards
+      Group {
+        Text("Database")
+          .font(Font.custom("SF Pro Display", size: 24).weight(.bold))
+          .foregroundColor(.black)
+          .offset(x: -95, y: -149.50)
+
+        Text("Upload")
+          .font(Font.custom("SF Pro Display", size: 24).weight(.bold))
+          .foregroundColor(.black)
+          .offset(x: 95, y: -149.50)
+
+        Text("Map View")
+          .font(Font.custom("SF Pro Display", size: 24).weight(.bold))
+          .foregroundColor(.black)
+          .offset(x: -95, y: 74.50)
+
+        Text("Viewer")
+          .font(Font.custom("SF Pro Display", size: 24).weight(.bold))
+          .foregroundColor(.black)
+          .offset(x: 94.50, y: 74.50)
+
+        Text("Resources")
+          .font(Font.custom("SF Pro Display", size: 24).weight(.bold))
+          .foregroundColor(.black)
+          .offset(x: -95.50, y: 298.50)
+
+        Text("Study")
+          .font(Font.custom("SF Pro Display", size: 24).weight(.bold))
+          .foregroundColor(.black)
+          .offset(x: 95, y: 298.50)
+      }
+
+      // Logout Button
+      Rectangle()
+        .foregroundColor(.clear)
+        .frame(width: 281, height: 71)
+        .background(Color(red: 0.53, green: 0.92, blue: 1))
+        .cornerRadius(50)
+        .offset(x: -8, y: 369.50)
+        .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.25), radius: 4, y: 4)
+      
+      Text("Logout")
+        .font(Font.custom("SF Pro Text", size: 28).weight(.medium))
+        .foregroundColor(.black)
+        .offset(x: -8, y: 369.50)
     }
+    .frame(width: 393, height: 852)
+  }
 }
 
 struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            HomeView()
-                .preferredColorScheme(.light)
-                .previewDisplayName("Light Mode")
-
-            HomeView()
-                .preferredColorScheme(.dark)
-                .previewDisplayName("Dark Mode")
-        }
-    }
+  static var previews: some View {
+    HomeView()
+  }
 }
