@@ -35,9 +35,12 @@
 		F75452792BB61AA700208B92 /* GlossaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452782BB61AA700208B92 /* GlossaryView.swift */; };
 		F754527B2BB61AB700208B92 /* ReferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F754527A2BB61AB700208B92 /* ReferencesView.swift */; };
 		F754527E2BB61AFB00208B92 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F754527D2BB61AFB00208B92 /* LoginViewModel.swift */; };
-		F75452832BB61B6900208B92 /* DiatomRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452822BB61B6900208B92 /* DiatomRecord.swift */; };
 		F75452852BB61B8B00208B92 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452842BB61B8B00208B92 /* FirebaseService.swift */; };
 		F75452872BB61BA600208B92 /* GoogleMapsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452862BB61BA600208B92 /* GoogleMapsService.swift */; };
+		F79C20242BC8936E00D0EF42 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79C20232BC8936E00D0EF42 /* CardView.swift */; };
+		F79C20262BC8A5CE00D0EF42 /* DatabaseEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79C20252BC8A5CE00D0EF42 /* DatabaseEntryView.swift */; };
+		F79C20282BC8A98200D0EF42 /* DiatomDatabaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79C20272BC8A98200D0EF42 /* DiatomDatabaseViewModel.swift */; };
+		F79C202A2BC8A9D600D0EF42 /* Diatom.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79C20292BC8A9D600D0EF42 /* Diatom.swift */; };
 		F7D7938F2BB650E100AC5415 /* StartupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D7938E2BB650E100AC5415 /* StartupViewModel.swift */; };
 		F7D793932BB67C3A00AC5415 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D793922BB67C3A00AC5415 /* ChangePasswordView.swift */; };
 		F7D793952BB67C4400AC5415 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D793942BB67C4400AC5415 /* RegisterView.swift */; };
@@ -93,9 +96,12 @@
 		F75452782BB61AA700208B92 /* GlossaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlossaryView.swift; sourceTree = "<group>"; };
 		F754527A2BB61AB700208B92 /* ReferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferencesView.swift; sourceTree = "<group>"; };
 		F754527D2BB61AFB00208B92 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		F75452822BB61B6900208B92 /* DiatomRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiatomRecord.swift; sourceTree = "<group>"; };
 		F75452842BB61B8B00208B92 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		F75452862BB61BA600208B92 /* GoogleMapsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsService.swift; sourceTree = "<group>"; };
+		F79C20232BC8936E00D0EF42 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		F79C20252BC8A5CE00D0EF42 /* DatabaseEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseEntryView.swift; sourceTree = "<group>"; };
+		F79C20272BC8A98200D0EF42 /* DiatomDatabaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiatomDatabaseViewModel.swift; sourceTree = "<group>"; };
+		F79C20292BC8A9D600D0EF42 /* Diatom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diatom.swift; sourceTree = "<group>"; };
 		F7D7938E2BB650E100AC5415 /* StartupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupViewModel.swift; sourceTree = "<group>"; };
 		F7D793922BB67C3A00AC5415 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		F7D793942BB67C4400AC5415 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
@@ -155,7 +161,6 @@
 				F754527C2BB61AD900208B92 /* ViewModels */,
 				F75452812BB61B5400208B92 /* Models */,
 				F754527F2BB61B2100208B92 /* Services */,
-				F75452802BB61B3900208B92 /* Utilities */,
 				F75452282BB6180800208B92 /* Assets.xcassets */,
 				F754522A2BB6180800208B92 /* Preview Content */,
 			);
@@ -193,6 +198,7 @@
 				F754524F2BB618C100208B92 /* StartupView.swift */,
 				F7D793912BB67C1000AC5415 /* Login Navigation */,
 				F75452612BB6199A00208B92 /* Home Navigation */,
+				F75452802BB61B3900208B92 /* Utilities */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -243,6 +249,7 @@
 			children = (
 				F7D7938E2BB650E100AC5415 /* StartupViewModel.swift */,
 				F754527D2BB61AFB00208B92 /* LoginViewModel.swift */,
+				F79C20272BC8A98200D0EF42 /* DiatomDatabaseViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -259,6 +266,8 @@
 		F75452802BB61B3900208B92 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				F79C20232BC8936E00D0EF42 /* CardView.swift */,
+				F79C20252BC8A5CE00D0EF42 /* DatabaseEntryView.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -266,7 +275,7 @@
 		F75452812BB61B5400208B92 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F75452822BB61B6900208B92 /* DiatomRecord.swift */,
+				F79C20292BC8A9D600D0EF42 /* Diatom.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -417,11 +426,13 @@
 				F75452652BB61A0700208B92 /* BiologyView.swift in Sources */,
 				F75452692BB61A3000208B92 /* EcologyView.swift in Sources */,
 				F75452872BB61BA600208B92 /* GoogleMapsService.swift in Sources */,
+				F79C202A2BC8A9D600D0EF42 /* Diatom.swift in Sources */,
 				F75452712BB61A7500208B92 /* ArticlesView.swift in Sources */,
 				F754525C2BB6197000208B92 /* ViewerView.swift in Sources */,
 				F754526B2BB61A4000208B92 /* DiscoveryView.swift in Sources */,
 				F75452792BB61AA700208B92 /* GlossaryView.swift in Sources */,
 				F7D793952BB67C4400AC5415 /* RegisterView.swift in Sources */,
+				F79C20242BC8936E00D0EF42 /* CardView.swift in Sources */,
 				F754526D2BB61A4E00208B92 /* ResearchView.swift in Sources */,
 				F754525A2BB6195800208B92 /* MapView.swift in Sources */,
 				F75452672BB61A2100208B92 /* HistoryView.swift in Sources */,
@@ -432,15 +443,16 @@
 				F7D793932BB67C3A00AC5415 /* ChangePasswordView.swift in Sources */,
 				F75452502BB618C100208B92 /* StartupView.swift in Sources */,
 				F75452522BB618D500208B92 /* LoginView.swift in Sources */,
+				F79C20262BC8A5CE00D0EF42 /* DatabaseEntryView.swift in Sources */,
 				F75452602BB6198B00208B92 /* StudyView.swift in Sources */,
 				F75452582BB6194200208B92 /* UploadView.swift in Sources */,
 				F75452752BB61A9000208B92 /* VideosView.swift in Sources */,
 				F75452852BB61B8B00208B92 /* FirebaseService.swift in Sources */,
-				F75452832BB61B6900208B92 /* DiatomRecord.swift in Sources */,
 				F754527E2BB61AFB00208B92 /* LoginViewModel.swift in Sources */,
 				F7D793972BB67C5600AC5415 /* GoogleSignInView.swift in Sources */,
 				F7D7938F2BB650E100AC5415 /* StartupViewModel.swift in Sources */,
 				F75452542BB6191A00208B92 /* HomeView.swift in Sources */,
+				F79C20282BC8A98200D0EF42 /* DiatomDatabaseViewModel.swift in Sources */,
 				F754526F2BB61A5800208B92 /* QuizView.swift in Sources */,
 				F75452252BB6180700208B92 /* Diatom_DiveApp.swift in Sources */,
 			);

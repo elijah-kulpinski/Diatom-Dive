@@ -25,7 +25,7 @@ struct LoginView: View {
             GeometryReader { geometry in
                 ZStack {
                     // Background color
-                    Color(red: 0.40, green: 0.77, blue: 0.62).edgesIgnoringSafeArea(.all)
+                    Color("BackgroundColor").edgesIgnoringSafeArea(.all)
                     
                     // Main content
                     VStack(spacing: 100) {
@@ -89,14 +89,14 @@ struct LoginView: View {
         VStack(spacing: 15) {
             TextField("Enter Your Username", text: $viewModel.username)
                 .padding()
-                .background(Color(red: 0.91, green: 0.91, blue: 0.91))
+                .background(Color("TextBoxColor"))
                 .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.black, lineWidth: 1))
                 .shadow(radius: 2)
                 .frame(width: geometry.size.width * 0.8)
             
             SecureField("Enter Your Password", text: $viewModel.password)
                 .padding()
-                .background(Color(red: 0.91, green: 0.91, blue: 0.91))
+                .background(Color("TextBoxColor"))
                 .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.black, lineWidth: 1))
                 .shadow(radius: 2)
                 .frame(width: geometry.size.width * 0.8)
@@ -134,7 +134,7 @@ struct LoginView: View {
             Button("Sign in with Google", action: viewModel.signInWithGoogle)
                 .padding()
                 .frame(width: geometry.size.width * 0.8)
-                .background(Color(red: 0.91, green: 0.91, blue: 0.91))
+                .background(Color("TextBoxColor"))
                 .cornerRadius(20)
                 .padding(.bottom, 20)
         }

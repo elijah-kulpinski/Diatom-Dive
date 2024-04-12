@@ -20,7 +20,7 @@ struct StartupView: View {
         NavigationStack {
             GeometryReader { geometry in
                 ZStack {
-                    Image("StartupBackground")
+                    Image("StartupBackgroundImg")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .edgesIgnoringSafeArea(.all)
