@@ -13,39 +13,15 @@ struct DiatomDatabaseView: View {
 
     var body: some View {
         VStack {
-            NavigationBarView(viewModel: viewModel, showingBookmarks: $showingBookmarks)
+            NavigationBarView(searchText: $viewModel.searchText, showingBookmarks: $showingBookmarks, viewName: "Database", onCommit: {
+                viewModel.filterDiatoms()
+            })
             SortingFilteringOptionsView(viewModel: viewModel)
             ActiveFiltersView(viewModel: viewModel)
             DiatomsListView(viewModel: viewModel, showingBookmarks: showingBookmarks)
             DownloadButtonView(viewModel: viewModel)
         }
         .background(Color("BackgroundColor").edgesIgnoringSafeArea(.all))
-    }
-}
-
-struct NavigationBarView: View {
-    @ObservedObject var viewModel: DiatomDatabaseViewModel
-    @Binding var showingBookmarks: Bool  // Binding to manage bookmark visibility
-    
-    var body: some View {
-        HStack {
-            Button(action: { print("Back") }) {
-                Image(systemName: "arrow.left").foregroundColor(.black)
-            }
-            Spacer()
-            TextField("Search Diatoms", text: $viewModel.searchText, onCommit: viewModel.filterDiatoms)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            Spacer()
-            Button(action: { showingBookmarks.toggle() }) {
-                Image(systemName: showingBookmarks ? "bookmark.fill" : "bookmark")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 40, height: 35)
-                    .foregroundColor(.black)
-            }
-        }
-        .padding()
-        .background(Color("BackgroundColor"))
     }
 }
 

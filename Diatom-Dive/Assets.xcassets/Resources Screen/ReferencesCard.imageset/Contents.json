@@ -1,14 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "References.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "References@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "References@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

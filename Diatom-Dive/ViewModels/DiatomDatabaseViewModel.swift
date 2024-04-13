@@ -5,6 +5,7 @@
 //  Created by Eli Kulpinski on 4/11/24.
 //
 
+import Combine
 import Foundation
 import SwiftUI
 import UIKit
@@ -245,8 +246,30 @@ class DiatomDatabaseViewModel: ObservableObject {
 //        updateSortedDiatoms()
 //    }
     
+//    func filterDiatoms() {
+//        print("Filtering diatoms with search text: '\(searchText)'")
+//        if searchText.isEmpty {
+//            updateSortedDiatoms()
+//        } else {
+//            sortedDiatoms = diatoms.filter { diatom in
+//                diatom.name.lowercased().contains(searchText.lowercased()) ||
+//                diatom.taxonomy.values.contains(where: { $0.lowercased().contains(searchText.lowercased()) }) ||
+//                diatom.habitat.lowercased().contains(searchText.lowercased()) ||
+//                diatom.region.lowercased().contains(searchText.lowercased())
+//            }
+//        }
+//    }
+    
     func filterDiatoms() {
+        print("Filtering diatoms with search text: '\(searchText)'")
+        if searchText.isEmpty {
             updateSortedDiatoms()
+        } else {
+            sortedDiatoms = diatoms.filter { diatom in
+                // Start by checking if the diatom name starts with the searchText
+                diatom.name.lowercased().starts(with: searchText.lowercased())
+            }
+        }
     }
     
     func removeFilter(_ filter: String) {

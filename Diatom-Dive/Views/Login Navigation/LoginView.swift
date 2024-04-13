@@ -13,7 +13,7 @@
 import SwiftUI
 
 struct LoginView: View {
-    @EnvironmentObject private var viewModel: LoginViewModel // ViewModel injected as an EnvironmentObject
+    @EnvironmentObject private var viewModel: LoginViewModel
     @State private var rememberMe = false
     @State private var navigateToHome = false
     @State private var navigateToRegister = false

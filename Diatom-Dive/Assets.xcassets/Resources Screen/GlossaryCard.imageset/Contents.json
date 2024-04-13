@@ -1,14 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "Glossary.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Glossary@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "Glossary@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

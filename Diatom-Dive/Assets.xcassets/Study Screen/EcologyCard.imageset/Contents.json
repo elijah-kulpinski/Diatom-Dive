@@ -1,14 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "Ecology.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Ecology@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "Ecology@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

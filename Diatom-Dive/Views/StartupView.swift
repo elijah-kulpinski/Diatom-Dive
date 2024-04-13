@@ -66,12 +66,10 @@ struct StartupView: View {
     }
 }
 
-
 // MARK: - Previews
 struct StartupView_Previews: PreviewProvider {
     static var previews: some View {
         StartupView()
-            .preferredColorScheme(.light)
             .previewDisplayName("Startup View Preview")
     }
 }

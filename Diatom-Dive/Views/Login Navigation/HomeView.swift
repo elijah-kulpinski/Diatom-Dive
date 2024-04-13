@@ -11,63 +11,67 @@
 //  Created by Eli Kulpinski on 3/28/24.
 //
 
+import Foundation
 import SwiftUI
 
 struct HomeView: View {
-  var body: some View {
-    ZStack {
-      // Home background
-      Image("HomeBackgroundImg") // HomeBackground asset
-        .resizable()
-        .aspectRatio(contentMode: .fill)
-        .frame(width: 393, height: 852)
-        .offset(x: 0, y: 0)
+    // Padding Constants
+    private let gridSpacing: CGFloat = 20
+    private let cardPadding: CGFloat = 20
+    private let gridHorizontalPadding: CGFloat = 20
+    private let gridTopPadding: CGFloat = 70
+    private let logoutButtonBottomPadding: CGFloat = 20
 
-        // Using CardView for each functionality
-        // Database Card
-        CardView(imageName: "DatabaseCard", labelText: "Database")
-            .offset(x: -95, y: -233)
-        
-        // Upload Card
-        CardView(imageName: "UploadCard", labelText: "Upload")
-            .offset(x: 95, y: -233)
-        
-        // Map Card
-        CardView(imageName: "MapCard", labelText: "Map View")
-            .offset(x: -95, y: -9)
-        
-        // Viewer Card
-        CardView(imageName: "ViewerCard", labelText: "Viewer")
-            .offset(x: 95, y: -9)
-        
-        // Resources Card
-        CardView(imageName: "ResourcesCard", labelText: "Resources")
-            .offset(x: -95, y: 215)
-        
-        // Study Card
-        CardView(imageName: "StudyCard", labelText: "Study")
-            .offset(x: 95, y: 215)
+    var body: some View {
+        ZStack {
+            // Home background
+            Image("HomeBackgroundImg")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .edgesIgnoringSafeArea(.all)
 
-      // Logout Button
-      Rectangle()
-        .foregroundColor(.clear)
-        .frame(width: 281, height: 71)
-        .background(Color("LogoutButtonColor"))
-        .cornerRadius(50)
-        .offset(x: -8, y: 369.50)
-        .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.25), radius: 4, y: 4)
-      
-      Text("Logout")
-        .font(Font.custom("SF Pro Text", size: 28).weight(.medium))
-        .foregroundColor(.black)
-        .offset(x: -8, y: 369.50)
+            // Main content arranged in a scrollable grid
+            ScrollView {
+                LazyVGrid(columns: [GridItem(.flexible(), spacing: gridSpacing), GridItem(.flexible())], spacing: gridSpacing) {
+                    CardView(imageName: "DatabaseCard", labelText: "Database")
+                        .padding([.leading, .trailing], cardPadding)
+                    CardView(imageName: "UploadCard", labelText: "Upload")
+                        .padding([.leading, .trailing], cardPadding)
+                    CardView(imageName: "MapCard", labelText: "Map View")
+                        .padding([.leading, .trailing], cardPadding)
+                    CardView(imageName: "ViewerCard", labelText: "Viewer")
+                        .padding([.leading, .trailing], cardPadding)
+                    CardView(imageName: "ResourcesCard", labelText: "Resources")
+                        .padding([.leading, .trailing], cardPadding)
+                    CardView(imageName: "StudyCard", labelText: "Study")
+                        .padding([.leading, .trailing], cardPadding)
+                }
+                .padding(.horizontal, gridHorizontalPadding)  // Horizontal padding within the grid
+                .padding(.top, gridTopPadding)                 // Top padding to separate from the top edge
+            }
+
+            // Logout button placed at the bottom
+            VStack {
+                Spacer()  // Pushes everything down
+                Button(action: {
+                    // Handle logout action
+                }) {
+                    Text("Logout")
+                        .frame(width: 250, height: 60)
+                        .background(Color("LogoutButtonColor"))
+                        .cornerRadius(50)
+                        .foregroundColor(.black)
+                        .font(Font.custom("SF Pro Text", size: 28).weight(.medium))
+                        .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.25), radius: 4, y: 4)
+                }
+                .padding(.bottom, logoutButtonBottomPadding)  // Bottom padding for logout button
+            }
+        }
     }
-    .frame(width: 393, height: 852)
-  }
 }
 
 struct HomeView_Previews: PreviewProvider {
-  static var previews: some View {
-    HomeView()
-  }
+    static var previews: some View {
+        HomeView()
+    }
 }

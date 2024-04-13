@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F7368DCF2BC9EE0000322354 /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7368DCE2BC9EE0000322354 /* NavigationBarView.swift */; };
+		F7368DD12BC9FC6400322354 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7368DD02BC9FC6400322354 /* HomeViewModel.swift */; };
+		F7368DD32BC9FC7200322354 /* StudyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7368DD22BC9FC7200322354 /* StudyViewModel.swift */; };
+		F7368DD52BC9FC7D00322354 /* ResourcesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7368DD42BC9FC7D00322354 /* ResourcesViewModel.swift */; };
 		F75452252BB6180700208B92 /* Diatom_DiveApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452242BB6180700208B92 /* Diatom_DiveApp.swift */; };
 		F75452292BB6180800208B92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F75452282BB6180800208B92 /* Assets.xcassets */; };
 		F754522C2BB6180800208B92 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F754522B2BB6180800208B92 /* Preview Assets.xcassets */; };
@@ -65,6 +69,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F7368DCE2BC9EE0000322354 /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
+		F7368DD02BC9FC6400322354 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		F7368DD22BC9FC7200322354 /* StudyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyViewModel.swift; sourceTree = "<group>"; };
+		F7368DD42BC9FC7D00322354 /* ResourcesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesViewModel.swift; sourceTree = "<group>"; };
 		F75452212BB6180700208B92 /* Diatom-Dive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Diatom-Dive.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F75452242BB6180700208B92 /* Diatom_DiveApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diatom_DiveApp.swift; sourceTree = "<group>"; };
 		F75452282BB6180800208B92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -250,6 +258,9 @@
 				F7D7938E2BB650E100AC5415 /* StartupViewModel.swift */,
 				F754527D2BB61AFB00208B92 /* LoginViewModel.swift */,
 				F79C20272BC8A98200D0EF42 /* DiatomDatabaseViewModel.swift */,
+				F7368DD02BC9FC6400322354 /* HomeViewModel.swift */,
+				F7368DD22BC9FC7200322354 /* StudyViewModel.swift */,
+				F7368DD42BC9FC7D00322354 /* ResourcesViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -268,6 +279,7 @@
 			children = (
 				F79C20232BC8936E00D0EF42 /* CardView.swift */,
 				F79C20252BC8A5CE00D0EF42 /* DatabaseEntryView.swift */,
+				F7368DCE2BC9EE0000322354 /* NavigationBarView.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -422,6 +434,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7368DD52BC9FC7D00322354 /* ResourcesViewModel.swift in Sources */,
 				F754527B2BB61AB700208B92 /* ReferencesView.swift in Sources */,
 				F75452652BB61A0700208B92 /* BiologyView.swift in Sources */,
 				F75452692BB61A3000208B92 /* EcologyView.swift in Sources */,
@@ -445,11 +458,14 @@
 				F75452522BB618D500208B92 /* LoginView.swift in Sources */,
 				F79C20262BC8A5CE00D0EF42 /* DatabaseEntryView.swift in Sources */,
 				F75452602BB6198B00208B92 /* StudyView.swift in Sources */,
+				F7368DD12BC9FC6400322354 /* HomeViewModel.swift in Sources */,
 				F75452582BB6194200208B92 /* UploadView.swift in Sources */,
 				F75452752BB61A9000208B92 /* VideosView.swift in Sources */,
 				F75452852BB61B8B00208B92 /* FirebaseService.swift in Sources */,
 				F754527E2BB61AFB00208B92 /* LoginViewModel.swift in Sources */,
+				F7368DD32BC9FC7200322354 /* StudyViewModel.swift in Sources */,
 				F7D793972BB67C5600AC5415 /* GoogleSignInView.swift in Sources */,
+				F7368DCF2BC9EE0000322354 /* NavigationBarView.swift in Sources */,
 				F7D7938F2BB650E100AC5415 /* StartupViewModel.swift in Sources */,
 				F75452542BB6191A00208B92 /* HomeView.swift in Sources */,
 				F79C20282BC8A98200D0EF42 /* DiatomDatabaseViewModel.swift in Sources */,
