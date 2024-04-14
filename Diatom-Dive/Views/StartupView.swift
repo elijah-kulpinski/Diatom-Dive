@@ -14,7 +14,7 @@
 import SwiftUI
 
 struct StartupView: View {
-    @StateObject private var viewModel = StartupViewModel()
+    @ObservedObject var viewModel = StartupViewModel()
 
     var body: some View {
         NavigationStack {
@@ -66,10 +66,8 @@ struct StartupView: View {
     }
 }
 
-// MARK: - Previews
 struct StartupView_Previews: PreviewProvider {
     static var previews: some View {
         StartupView()
-            .previewDisplayName("Startup View Preview")
     }
 }

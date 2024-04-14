@@ -20,7 +20,9 @@ struct HomeView: View {
     private let cardPadding: CGFloat = 20
     private let gridHorizontalPadding: CGFloat = 20
     private let gridTopPadding: CGFloat = 70
-    private let logoutButtonBottomPadding: CGFloat = 20
+    private let logoutButtonBottomPadding: CGFloat = 30
+    
+    @State var isLoggedOut: Bool = false
 
     var body: some View {
         ZStack {
@@ -29,7 +31,7 @@ struct HomeView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .edgesIgnoringSafeArea(.all)
-
+            
             // Main content arranged in a scrollable grid
             ScrollView {
                 LazyVGrid(columns: [GridItem(.flexible(), spacing: gridSpacing), GridItem(.flexible())], spacing: gridSpacing) {
@@ -55,6 +57,7 @@ struct HomeView: View {
                 Spacer()  // Pushes everything down
                 Button(action: {
                     // Handle logout action
+                    isLoggedOut = true
                 }) {
                     Text("Logout")
                         .frame(width: 250, height: 60)
@@ -67,6 +70,13 @@ struct HomeView: View {
                 .padding(.bottom, logoutButtonBottomPadding)  // Bottom padding for logout button
             }
         }
+        
+        .fullScreenCover(isPresented: $isLoggedOut, onDismiss: {
+            isLoggedOut = false // Reset login state when returning
+        }) {
+            LoginView() // Present LoginView when logged out
+        }
+        
     }
 }
 

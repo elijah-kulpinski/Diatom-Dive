@@ -13,23 +13,16 @@
 import SwiftUI
 
 struct LoginView: View {
-    @EnvironmentObject private var viewModel: LoginViewModel
+    @ObservedObject var viewModel = LoginViewModel()
     @State private var rememberMe = false
-    @State private var navigateToHome = false
-    @State private var navigateToRegister = false
-    @State private var navigateToForgotPassword = false
-    @State private var navigateToGoogleSignIn = false
 
     var body: some View {
         NavigationView {
             GeometryReader { geometry in
                 ZStack {
-                    // Background color
                     Color("BackgroundColor").edgesIgnoringSafeArea(.all)
-                    
-                    // Main content
+
                     VStack(spacing: 100) {
-                        // Top half with text and diatom image
                         HStack(spacing: 0) {
                             textContainer(geometry: geometry)
                             Spacer()
@@ -37,32 +30,19 @@ struct LoginView: View {
                         }
                         .padding([.leading, .trailing])
 
-                        // Bottom half with login form
                         loginForm(geometry: geometry)
                     }
+                    
+                    loginNavigation()
                 }
             }
-            .navigationTitle("") // Hide navigation bar title
-            .navigationBarHidden(true) // Ensure navigation bar is hidden
-            .alert(isPresented: $viewModel.showAlert) { // User feedback alert
+            .navigationTitle("")
+            .navigationBarHidden(true)
+            .alert(isPresented: $viewModel.showAlert) {
                 Alert(title: Text("Error"), message: Text(viewModel.alertMessage), dismissButton: .default(Text("OK")))
             }
-             
-             // Navigation destinations
-            .navigationDestination(isPresented: $navigateToHome) {
-                 HomeView()
-             }
-             .navigationDestination(isPresented: $navigateToRegister) {
-                 RegisterView()
-             }
-             .navigationDestination(isPresented: $navigateToForgotPassword) {
-                 ChangePasswordView()
-             }
-             .navigationDestination(isPresented: $navigateToGoogleSignIn) {
-                 GoogleSignInView()
-             }
-         }
-     }
+        }
+    }
     
     // Text container on the left
     private func textContainer(geometry: GeometryProxy) -> some View {
@@ -139,10 +119,23 @@ struct LoginView: View {
                 .padding(.bottom, 20)
         }
     }
+    
+    @ViewBuilder
+    private func loginNavigation() -> some View {
+        if viewModel.navigateToHome {
+            HomeView()
+        } else if viewModel.navigateToRegister {
+            RegisterView()
+        } else if viewModel.navigateToForgotPassword {
+            ChangePasswordView()
+        } else if viewModel.navigateToGoogleSignIn {
+            GoogleSignInView()
+        }
+    }
 }
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView().environmentObject(LoginViewModel())
+        LoginView()
     }
 }

@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct DiatomDatabaseView: View {
-    @ObservedObject var viewModel = DiatomDatabaseViewModel()
+struct DatabaseView: View {
+    @ObservedObject var viewModel = DatabaseViewModel()
     @State private var showingBookmarks = false
 
     var body: some View {
@@ -26,7 +26,7 @@ struct DiatomDatabaseView: View {
 }
 
 struct SortingFilteringOptionsView: View {
-    @ObservedObject var viewModel: DiatomDatabaseViewModel
+    @ObservedObject var viewModel: DatabaseViewModel
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
@@ -99,7 +99,7 @@ struct FilterMenu: View {
 }
 
 struct ActiveFiltersView: View {
-    @ObservedObject var viewModel: DiatomDatabaseViewModel
+    @ObservedObject var viewModel: DatabaseViewModel
 
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
@@ -142,7 +142,7 @@ struct ActiveFiltersView: View {
 
 
 struct DiatomsListView: View {
-    @ObservedObject var viewModel: DiatomDatabaseViewModel
+    @ObservedObject var viewModel: DatabaseViewModel
     var showingBookmarks: Bool
     
     var body: some View {
@@ -157,7 +157,7 @@ struct DiatomsListView: View {
 }
 
 struct DownloadButtonView: View {
-    @ObservedObject var viewModel: DiatomDatabaseViewModel
+    @ObservedObject var viewModel: DatabaseViewModel
     @State private var showDocumentPicker = false
     @State private var documentData: Data?
     
@@ -188,9 +188,9 @@ struct DownloadButtonView: View {
     }
 }
 
-struct DiatomDatabaseView_Previews: PreviewProvider {
+struct DatabaseView_Previews: PreviewProvider {
     static var previews: some View {
-        DiatomDatabaseView()
+        DatabaseView()
             .preferredColorScheme(.light)
             .previewDisplayName("Diatom Database Preview")
     }

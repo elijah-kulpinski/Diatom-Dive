@@ -24,6 +24,7 @@ class LoginViewModel: ObservableObject {
     @Published var navigateToGoogleSignIn = false
 
     func login() {
+        print("Login Triggered")
         if username.isEmpty || password.isEmpty {
             alertMessage = "Username and password are required."
             showAlert = true
@@ -33,14 +34,17 @@ class LoginViewModel: ObservableObject {
     }
 
     func register() {
+        print("Register Triggered.")
         navigateToRegister = true
     }
 
     func forgotPassword() {
+        print("Forgot Password Triggered.")
         navigateToForgotPassword = true
     }
 
     func signInWithGoogle() {
+        print("Sign In W/ Google Triggered.")
         navigateToGoogleSignIn = true
     }
 }

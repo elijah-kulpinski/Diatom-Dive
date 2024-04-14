@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 import UIKit
 
-class DiatomDatabaseViewModel: ObservableObject {
+class DatabaseViewModel: ObservableObject {
     @Published var diatoms: [Diatom]
     @Published var sortedDiatoms: [Diatom] = []
     @Published var searchText: String = ""

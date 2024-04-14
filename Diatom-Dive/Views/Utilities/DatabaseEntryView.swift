@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DatabaseEntryView: View {
     var diatom: Diatom
-    @ObservedObject var viewModel: DiatomDatabaseViewModel
+    @ObservedObject var viewModel: DatabaseViewModel
     var action: () -> Void
 
     var body: some View {
