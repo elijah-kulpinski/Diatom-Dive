@@ -15,7 +15,7 @@ struct MapView: View {
         center: CLLocationCoordinate2D(latitude: 34.0522, longitude: -118.2437),
         span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
     )
-    @State private var trackingMode: MapUserTrackingMode = .follow  // State for tracking mode
+    @State private var trackingMode: MapUserTrackingMode = .follow
 
     var body: some View {
         ZStack {
@@ -25,15 +25,38 @@ struct MapView: View {
                 userTrackingMode: $trackingMode,
                 annotationItems: viewModel.diatomLocations) { location in
                 MapAnnotation(coordinate: location.coordinate) {
-                    Image("SpotlightMarkerIcon")
-                        .resizable()
-                        .frame(width: 30, height: 50)
+                    Button(action: {
+                        viewModel.selectedLocation = location
+                    }) {
+                        Image("SpotlightMarkerIcon")
+                            .resizable()
+                            .frame(width: 30, height: 50)
+                    }
                 }
             }
             .edgesIgnoringSafeArea(.all)
+            .blur(radius: 3.0)
+            .onTapGesture {
+                // Dismiss the detail view when tapping anywhere else on the map
+                viewModel.selectedLocation = nil
+            }
 
-            // Fog of war overlay
-            FogOfWarOverlay(userLocation: viewModel.userLocation)
+            if let selectedDiatom = viewModel.selectedLocation {
+                MapDetailView(diatomLocation: selectedDiatom)
+                    .background(Color.white)
+                    .cornerRadius(10)
+                    .shadow(radius: 5)
+                    .padding()
+                    .transition(.slide)
+                    .animation(.easeInOut, value: viewModel.selectedLocation)
+                    .onTapGesture {
+                        // Prevent the map's tap gesture from firing
+                        // This ensures the details view doesn't dismiss when it's tapped
+                    }
+            }
+
+            FogOfWarOverlay(viewModel: viewModel)
+                .allowsHitTesting(false)
         }
         .onAppear {
             viewModel.checkIfLocationServicesIsEnabled()
@@ -42,23 +65,47 @@ struct MapView: View {
 }
 
 struct FogOfWarOverlay: View {
-    var userLocation: CLLocationCoordinate2D
+    @ObservedObject var viewModel: MapViewModel
+
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                // Background with blur and semi-transparency
-                Color.gray//.opacity(0.9)
-                    .blur(radius: 100)
-                
-                // Clear circle over the user's location
-                // Calculate position based on map coordinates translated to view coordinates
-                let center = CGPoint(x: geometry.size.width / 2, y: geometry.size.height / 2) // Placeholder for center calculation
-                Circle()
+                // Applying the custom color and blur
+                Rectangle()
+                    .fill(Color("FogOfWarColor"))
+                    .opacity(0.75)
+                    .blur(radius: 1)
+                    .edgesIgnoringSafeArea(.all)
+
+                // Mask for creating clear areas in the fog
+                Rectangle()
                     .fill(Color.clear)
-                    .frame(width: 50, height: 50) // Circle size
-                    .position(center)
+                    .frame(width: geometry.size.width, height: geometry.size.height)
+                    .mask(
+                        FogClearPath(viewModel: viewModel, geometry: geometry)
+                            .fill(style: FillStyle(eoFill: true))
+                    )
             }
         }
+    }
+}
+
+struct FogClearPath: Shape {
+    let viewModel: MapViewModel
+    var geometry: GeometryProxy
+
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        path.addRect(CGRect(origin: .zero, size: geometry.size))
+
+        // Using an instance of MKMapView to convert geographic coordinates to screen points
+        let mapView = MKMapView(frame: CGRect(origin: .zero, size: geometry.size))
+        for location in viewModel.clearedAreas {
+            let point = mapView.convert(location.coordinate, toPointTo: mapView)
+            path.addEllipse(in: CGRect(x: point.x - 50, y: point.y - 50, width: 100, height: 100))
+        }
+        
+        return path
     }
 }
 
