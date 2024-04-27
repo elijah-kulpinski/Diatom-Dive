@@ -17,6 +17,7 @@ class StartupViewModel: ObservableObject {
     @Published var isSpinning = false
     @Published var showWelcomeText = false
     @Published var navigateToLogin = false
+    @Published var hasNavigated = false
     @Published var spinDegrees = 0.0
 
     private var rotationTimer: Timer?
@@ -45,8 +46,11 @@ class StartupViewModel: ObservableObject {
     }
 
     func userInteracted() {
-        navigateToLogin = true
-        rotationTimer?.invalidate()  // Stop the spinner rotation when user interacts
+        if !hasNavigated {
+            navigateToLogin = true
+            hasNavigated = true
+            rotationTimer?.invalidate()  // Stop the spinner rotation when user interacts
+        }
     }
 
     deinit {

@@ -77,6 +77,8 @@ struct ViewerView: View {
                         .foregroundColor(.gray)
                 }
             }
+            .navigationTitle("")
+            .navigationBarHidden(true)
         }
     }
     

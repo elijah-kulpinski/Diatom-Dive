@@ -56,6 +56,8 @@ struct ResourcesView: View {
                 }
                 .frame(maxHeight: .infinity) // Ensures the scroll view takes up all available space
             }
+            .navigationTitle("")
+            .navigationBarHidden(true)
         }
     }
 }

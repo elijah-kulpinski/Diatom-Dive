@@ -19,8 +19,8 @@ struct HomeView: View {
     private let gridSpacing: CGFloat = 20
     private let cardPadding: CGFloat = 20
     private let gridHorizontalPadding: CGFloat = 20
-    private let gridTopPadding: CGFloat = 70
-    private let logoutButtonBottomPadding: CGFloat = 30
+    private let gridTopPadding: CGFloat = 30
+    private let logoutButtonBottomPadding: CGFloat = 80
     
     @State var isLoggedOut: Bool = false
 
@@ -60,7 +60,7 @@ struct HomeView: View {
                     isLoggedOut = true
                 }) {
                     Text("Logout")
-                        .frame(width: 250, height: 60)
+                        .frame(width: 250, height: 50)
                         .background(Color("LogoutButtonColor"))
                         .cornerRadius(50)
                         .foregroundColor(.black)
@@ -69,6 +69,8 @@ struct HomeView: View {
                 }
                 .padding(.bottom, logoutButtonBottomPadding)  // Bottom padding for logout button
             }
+            .navigationTitle("")
+            .navigationBarHidden(true)
         }
         
         .fullScreenCover(isPresented: $isLoggedOut, onDismiss: {

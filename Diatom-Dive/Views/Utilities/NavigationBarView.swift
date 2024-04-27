@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 struct NavigationBarView: View {
+    @Environment(\.presentationMode) var presentationMode
     @Binding var searchText: String
     @Binding var showingBookmarks: Bool  // Binding to manage bookmark visibility
     let viewName: String  // Name of the view for setting the search placeholder dynamically
@@ -16,7 +17,9 @@ struct NavigationBarView: View {
 
     var body: some View {
         HStack {
-            Button(action: { print("Back") }) {
+            Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()  // This will navigate back in the navigation stack
+                    }) {
                 Image(systemName: "arrow.left").foregroundColor(.black)
             }
             Spacer()

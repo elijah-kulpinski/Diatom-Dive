@@ -22,6 +22,8 @@ struct DatabaseView: View {
             DownloadButtonView(viewModel: viewModel)
         }
         .background(Color("BackgroundColor").edgesIgnoringSafeArea(.all))
+        .navigationTitle("")
+        .navigationBarHidden(true)
     }
 }
 

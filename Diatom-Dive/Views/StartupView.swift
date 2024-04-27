@@ -15,6 +15,7 @@ import SwiftUI
 
 struct StartupView: View {
     @ObservedObject var viewModel = StartupViewModel()
+    @State private var isActive: Bool = false
 
     var body: some View {
         NavigationStack {
@@ -46,16 +47,20 @@ struct StartupView: View {
                     }
                     .padding(.top, geometry.size.height * 0.15)
                     
+                    NavigationLink(destination: LoginView(), isActive: $isActive) {
+                        LoginView()
+                    }
+                    
                     Color.clear
                         .contentShape(Rectangle())
                         .gesture(DragGesture(minimumDistance: 3).onEnded { _ in viewModel.userInteracted() })
                         .gesture(LongPressGesture(minimumDuration: 0.5).onEnded { _ in viewModel.userInteracted() })
                         .onTapGesture { viewModel.userInteracted() }
                     
-                    // Handle navigation
-                    if viewModel.navigateToLogin {
-                        LoginView()
-                    }
+//                    // Handle navigation
+//                    if viewModel.navigateToLogin {
+//                        LoginView()
+//                    }
                 }
             }
             .navigationBarHidden(true)
