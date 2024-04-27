@@ -42,6 +42,12 @@ struct LoginView: View {
                 Alert(title: Text("Error"), message: Text(viewModel.alertMessage), dismissButton: .default(Text("OK")))
             }
         }
+        .onAppear{
+            // Check if user session is valid and navigate to HomeView if true
+            if FirebaseService.shared.isUserLoggedIn(){
+                viewModel.navigateToHome = true
+            }
+        }
     }
     
     // Text container on the left
@@ -67,7 +73,7 @@ struct LoginView: View {
     // Login form with username, password fields, and buttons
     private func loginForm(geometry: GeometryProxy) -> some View {
         VStack(spacing: 15) {
-            TextField("Enter Your Username", text: $viewModel.username)
+            TextField("Enter Your Email", text: $viewModel.email)
                 .padding()
                 .background(Color("TextBoxColor"))
                 .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.black, lineWidth: 1))
@@ -110,13 +116,13 @@ struct LoginView: View {
             }
             .padding(.bottom, geometry.safeAreaInsets.bottom + 20) // Padding for bottom safe area
             
-            // Google Sign-In button at the bottom
-            Button("Sign in with Google", action: viewModel.signInWithGoogle)
-                .padding()
-                .frame(width: geometry.size.width * 0.8)
-                .background(Color("TextBoxColor"))
-                .cornerRadius(20)
-                .padding(.bottom, 20)
+//            // Google Sign-In button at the bottom
+//            Button("Sign in with Google", action: viewModel.signInWithGoogle)
+//                .padding()
+//                .frame(width: geometry.size.width * 0.8)
+//                .background(Color("TextBoxColor"))
+//                .cornerRadius(20)
+//                .padding(.bottom, 20)
         }
     }
     
@@ -128,9 +134,9 @@ struct LoginView: View {
             RegisterView()
         } else if viewModel.navigateToForgotPassword {
             ChangePasswordView()
-        } else if viewModel.navigateToGoogleSignIn {
-            GoogleSignInView()
-        }
+        } //else if viewModel.navigateToGoogleSignIn {
+//            GoogleSignInView()
+//        }
     }
 }
 

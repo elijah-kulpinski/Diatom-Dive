@@ -56,7 +56,7 @@ struct GoogleSignInView: View {
 
                     // Bottom half of the screen with fields and buttons
                     VStack(spacing: 15) {
-                        TextField("Enter Your Username", text: $viewModel.username)
+                        TextField("Enter Your Email", text: $viewModel.email)
                             .padding()
                             .background(Color(red: 0.91, green: 0.91, blue: 0.91))
                             .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.black, lineWidth: 1))
@@ -127,14 +127,14 @@ struct GoogleSignInView: View {
                 // Sign in with Google Button at the bottom
                 VStack {
                     Spacer()
-                    Button(action: viewModel.signInWithGoogle) {
-                        Text("Sign in with Google")
-                            .padding()
-                            .frame(width: geometry.size.width * 0.8)
-                            .foregroundColor(.black)
-                            .background(Color(red: 0.91, green: 0.91, blue: 0.91))
-                            .cornerRadius(20)
-                    }
+//                    Button(action: viewModel.signInWithGoogle) {
+//                        Text("Sign in with Google")
+//                            .padding()
+//                            .frame(width: geometry.size.width * 0.8)
+//                            .foregroundColor(.black)
+//                            .background(Color(red: 0.91, green: 0.91, blue: 0.91))
+//                            .cornerRadius(20)
+//                    }
                     .padding(.bottom, geometry.safeAreaInsets.bottom + 20) // Padding for the bottom safe area
                 }
             }

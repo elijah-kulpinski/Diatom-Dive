@@ -10,41 +10,78 @@
 //
 
 import Foundation
+import SwiftUI
 
 class LoginViewModel: ObservableObject {
-    @Published var username: String = ""
+    @Published var email: String = ""
     @Published var password: String = ""
+    @Published var firstName: String = ""
+    @Published var lastName: String = ""
     @Published var showAlert: Bool = false
     @Published var alertMessage: String = ""
+    @Published var rememberMe: Bool = false
     
     // Navigation triggers
     @Published var navigateToHome = false
     @Published var navigateToRegister = false
     @Published var navigateToForgotPassword = false
-    @Published var navigateToGoogleSignIn = false
 
     func login() {
-        print("Login Triggered")
-        if username.isEmpty || password.isEmpty {
-            alertMessage = "Username and password are required."
-            showAlert = true
-        } else {
-            navigateToHome = true  // Simulate successful login
+        FirebaseService.shared.signInWithEmail(email: email, password: password, rememberMe: rememberMe) { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success():
+                    self?.navigateToHome = true
+                case .failure(let error):
+                    self?.alertMessage = error.localizedDescription
+                    self?.showAlert = true
+                }
+            }
         }
     }
 
     func register() {
-        print("Register Triggered.")
         navigateToRegister = true
     }
-
+    
     func forgotPassword() {
-        print("Forgot Password Triggered.")
         navigateToForgotPassword = true
     }
+}
 
-    func signInWithGoogle() {
-        print("Sign In W/ Google Triggered.")
-        navigateToGoogleSignIn = true
+extension LoginViewModel {
+    func registerWithEmail(email: String, password: String, firstName: String, lastName: String) {
+        FirebaseService.shared.registerWithEmail(email: email, password: password, firstName: firstName, lastName: lastName) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success():
+                    self.email = ""
+                    self.password = ""
+                    self.firstName = ""
+                    self.lastName = ""
+                    self.alertMessage = "Registration Successful. You can now log in."
+                    self.showAlert = true
+                case .failure(let error):
+                    self.alertMessage = error.localizedDescription
+                    self.showAlert = true
+                }
+            }
+        }
+    }
+
+    func resetPassword() {
+        FirebaseService.shared.resetPassword(email: self.email) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success():
+                    self.email = ""
+                    self.alertMessage = "Check your email to reset your password. "
+                    self.showAlert = true
+                case .failure(let error):
+                    self.alertMessage = error.localizedDescription
+                    self.showAlert = true
+                }
+            }
+        }
     }
 }

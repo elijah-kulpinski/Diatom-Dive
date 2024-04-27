@@ -13,130 +13,79 @@
 import SwiftUI
 
 struct RegisterView: View {
-    @StateObject private var viewModel = LoginViewModel()
-    @State private var rememberMe = false
+    @StateObject private var viewModel = LoginViewModel()  // Using the same ViewModel for simplicity
+    @State private var confirmPassword = ""
+    @State private var firstName = ""
+    @State private var lastName = ""
+    @Environment(\.presentationMode) var presentationMode  // For handling view dismissal
 
     var body: some View {
-        GeometryReader { geometry in
-            ZStack {
-                Color(red: 0.40, green: 0.4, blue: 0.62)
-                    .edgesIgnoringSafeArea(.all)
-
-                VStack(spacing: 100) {
-                    // Top half of the screen with text and image containers
-                    HStack(spacing: 0) {
-                        // Left container with text
-                        VStack(alignment: .leading, spacing: 5) {
-                            Spacer(minLength: geometry.size.height * 0.1)
-                            Text("Welcome!")
-                                .font(Font.custom("Poppins", size: 25).weight(.light))
-                                .foregroundColor(.black)
-                            
-                            Spacer(minLength: geometry.size.height * 0.05) // Positioning "Sign in to" centrally in height
-                            
-                            Text("Sign in to")
-                                .font(Font.custom("Poppins", size: 34).weight(.medium))
-                                .foregroundColor(.black)
-                            
-                            Text("Diatom Dive")
-                                .font(Font.custom("Poppins", size: 28).weight(.bold))
-                                .foregroundColor(.black)
+        NavigationView {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 20) {
+                    HStack {
+                        // Back button
+                        Button(action: {
+                            presentationMode.wrappedValue.dismiss()
+                        }) {
+                            Image(systemName: "arrow.left")
+                                .foregroundColor(.primary)
+                                .imageScale(.large)
+                                .padding()
                         }
-                        .frame(width: geometry.size.width * 0.4, height: geometry.size.height * 0.2)
 
                         Spacer()
 
-                        // Right container with diatom image
-                        Image("LoginDiatom")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: geometry.size.width * 0.5, height: geometry.size.height * 0.3)
+                        Text("Create Your Account")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .padding(.top)
                     }
-                    .padding([.leading, .trailing])
 
-                    // Bottom half of the screen with fields and buttons
-                    VStack(spacing: 15) {
-                        TextField("Enter Your Username", text: $viewModel.username)
-                            .padding()
-                            .background(Color(red: 0.91, green: 0.91, blue: 0.91))
-                            .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.black, lineWidth: 1))
-                            .shadow(radius: 2)
-                            .frame(width: geometry.size.width * 0.8)
-                        
-                        SecureField("Enter Your Password", text: $viewModel.password)
-                            .padding()
-                            .background(Color(red: 0.91, green: 0.91, blue: 0.91))
-                            .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color.black, lineWidth: 1))
-                            .shadow(radius: 2)
-                            .frame(width: geometry.size.width * 0.8)
+                    TextField("Email", text: $viewModel.email)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .autocapitalization(.none)
+                        .disableAutocorrection(true)
+                        .textContentType(.emailAddress)
 
-                        // Remember Me and Forgot Password
-                        HStack {
-                            Button(action: {
-                                rememberMe.toggle()
-                            }) {
-                                Image(systemName: rememberMe ? "checkmark.square.fill" : "square")
-                                    .foregroundColor(.black)
-                                Text("Remember Me")
-                                    .foregroundColor(.black)
-                            }
+                    TextField("First Name", text: $firstName)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .textContentType(.name)
 
-                            Spacer()
+                    TextField("Last Name", text: $lastName)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .textContentType(.familyName)
 
-                            Button("Forgot Password?") {
-                                viewModel.forgotPassword()
-                            }
-                            .font(Font.custom("Poppins", size: 16).weight(.bold))
-                            .foregroundColor(.black)
-                        }
-                        .frame(width: geometry.size.width * 0.8)
+                    SecureField("Password", text: $viewModel.password)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .textContentType(.newPassword)
 
-                        // Login Button
-                        Button(action: {
-                            viewModel.login()
-                        }) {
-                            Text("Login")
-                                .padding()
-                                .frame(minWidth: 0, maxWidth: .infinity)
-                                .background(Color.black)
-                                .foregroundColor(Color.white)
-                                .cornerRadius(6)
-                        }
-                        .shadow(radius: 2)
-                        .frame(width: geometry.size.width * 0.8)
+                    SecureField("Confirm Password", text: $confirmPassword)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .textContentType(.newPassword)
 
-                        // Registration Prompt
-                        HStack {
-                            Text("Don't Have An Account?")
-                                .font(Font.custom("Poppins", size: 16))
-                                .foregroundColor(.black)
-
-                            Text("Register")
-                                .font(Font.custom("Poppins", size: 18).weight(.black))
-                                .foregroundColor(.black)
-                                .onTapGesture {
-                                    viewModel.register()
-                                }
-                        }
+                    Button("Register") {
+                        viewModel.registerWithEmail(email: viewModel.email, password: viewModel.password, firstName: firstName, lastName: lastName)
                     }
-                    .padding(.bottom, geometry.safeAreaInsets.bottom + 20) // Padding for the bottom safe area
+                    .disabled(viewModel.email.isEmpty || viewModel.password.isEmpty || firstName.isEmpty || lastName.isEmpty || viewModel.password != confirmPassword)
+                    .buttonStyle(.borderedProminent)
+                    .padding()
 
-                    Spacer()
+                    if viewModel.password != confirmPassword {
+                        Text("Passwords do not match")
+                            .foregroundColor(.red)
+                    }
+
+                    Text("Password must be at least 8 characters long, include a number, and a special character.")
+                        .font(.footnote)
+                        .foregroundColor(.gray)
+                        .padding(.top, 5)
                 }
-
-                // Sign in with Google Button at the bottom
-                VStack {
-                    Spacer()
-                    Button(action: viewModel.signInWithGoogle) {
-                        Text("Sign in with Google")
-                            .padding()
-                            .frame(width: geometry.size.width * 0.8)
-                            .foregroundColor(.black)
-                            .background(Color(red: 0.91, green: 0.91, blue: 0.91))
-                            .cornerRadius(20)
-                    }
-                    .padding(.bottom, geometry.safeAreaInsets.bottom + 20) // Padding for the bottom safe area
-                }
+                .padding()
+            }
+            .navigationBarTitle("Register", displayMode: .inline)
+            .alert(isPresented: $viewModel.showAlert) {
+                Alert(title: Text("Registration"), message: Text(viewModel.alertMessage), dismissButton: .default(Text("OK")))
             }
         }
     }
@@ -144,14 +93,6 @@ struct RegisterView: View {
 
 struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            RegisterView()
-                .preferredColorScheme(.light)
-                .previewDisplayName("Light Mode")
-
-            RegisterView()
-                .preferredColorScheme(.dark)
-                .previewDisplayName("Dark Mode")
-        }
+        RegisterView()
     }
 }

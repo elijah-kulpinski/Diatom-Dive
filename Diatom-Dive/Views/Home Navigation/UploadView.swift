@@ -56,6 +56,7 @@ struct UploadView: View {
                 Alert(title: Text("Error"), message: Text(viewModel.errorMessage), dismissButton: .default(Text("OK")))
             }
             .navigationTitle("Upload Diatom Data")
+            .navigationBarHidden(true)
             .background(Color("BackgroundColor"))
             .sheet(isPresented: $isShowingImagePicker) {  // Present the image picker
                 ImagePicker(sourceType: .photoLibrary) { image in

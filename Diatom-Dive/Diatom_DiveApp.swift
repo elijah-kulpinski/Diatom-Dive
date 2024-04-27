@@ -6,9 +6,15 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct Diatom_DiveApp: App {
+    // Initialize Firebase in the application
+    init() {
+        FirebaseApp.configure()
+    }
+
     var body: some Scene {
         WindowGroup {
             StartupView() // Application Entry Point
