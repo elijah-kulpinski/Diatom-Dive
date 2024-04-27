@@ -1,14 +1,3 @@
-//
-//  StartupViewModel.swift
-//  Diatom-Dive
-//
-//  ViewModel for StartupView. Manages the state and transitions for the startup sequence, including
-//  an animated spinning image and the appearance of a welcome message. Handles user interactions
-//  to transition to the LoginView either after a delay or upon interaction.
-//
-//  Created by Eli Kulpinski on 3/28/24.
-//
-
 import Combine
 import Foundation
 import SwiftUI
@@ -21,27 +10,35 @@ class StartupViewModel: ObservableObject {
     @Published var spinDegrees = 0.0
 
     private var rotationTimer: Timer?
+    private var navigationTimer: Timer?
 
     func startAnimations() {
         isSpinning = true
-        
+
         // Start spinner rotation with a smooth and consistent increment
         rotationTimer = Timer.scheduledTimer(withTimeInterval: 0.02, repeats: true) { [weak self] _ in
             guard let self = self else { return }
-            self.spinDegrees += 5  // Adjust the increment for a smoother rotation
-            // No need to reset to 0; continuous increase will ensure smooth clockwise rotation
+            self.spinDegrees += 7.5  // Adjust the increment for a smoother rotation
         }
-        
+
         // Show welcome text after a few seconds
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             withAnimation {
                 self.showWelcomeText = true
             }
         }
-        
+
         // Navigate to LoginView after delay or user interaction
-        Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { [weak self] _ in
-            self?.navigateToLogin = true
+        navigationTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { [weak self] _ in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                if !self.hasNavigated {
+                    self.navigateToLogin = true
+                    self.hasNavigated = true
+                    // Ensure to stop the timers to prevent re-triggering navigation
+                    self.invalidateTimers()
+                }
+            }
         }
     }
 
@@ -49,11 +46,18 @@ class StartupViewModel: ObservableObject {
         if !hasNavigated {
             navigateToLogin = true
             hasNavigated = true
-            rotationTimer?.invalidate()  // Stop the spinner rotation when user interacts
+            invalidateTimers()
         }
     }
 
+    private func invalidateTimers() {
+        rotationTimer?.invalidate()
+        navigationTimer?.invalidate()
+        rotationTimer = nil
+        navigationTimer = nil
+    }
+
     deinit {
-        rotationTimer?.invalidate()  // Ensure the timer is invalidated when the view model is deinitialized
+        invalidateTimers()
     }
 }

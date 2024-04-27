@@ -15,10 +15,9 @@ import SwiftUI
 
 struct StartupView: View {
     @ObservedObject var viewModel = StartupViewModel()
-    @State private var isActive: Bool = false
 
     var body: some View {
-        NavigationStack {
+        NavigationStack() {
             GeometryReader { geometry in
                 ZStack {
                     Image("StartupBackgroundImg")
@@ -39,7 +38,6 @@ struct StartupView: View {
                         if viewModel.showWelcomeText {
                             Text("Welcome to Diatom Dive!")
                                 .font(.system(size: 28, weight: .bold, design: .default))
-                                // Use opacity transition for fading in
                                 .transition(.opacity)
                                 .padding(.horizontal)
                         }
@@ -47,22 +45,19 @@ struct StartupView: View {
                     }
                     .padding(.top, geometry.size.height * 0.15)
                     
-                    NavigationLink(destination: LoginView(), isActive: $isActive) {
-                        LoginView()
-                    }
-                    
                     Color.clear
                         .contentShape(Rectangle())
                         .gesture(DragGesture(minimumDistance: 3).onEnded { _ in viewModel.userInteracted() })
                         .gesture(LongPressGesture(minimumDuration: 0.5).onEnded { _ in viewModel.userInteracted() })
                         .onTapGesture { viewModel.userInteracted() }
                     
-//                    // Handle navigation
-//                    if viewModel.navigateToLogin {
-//                        LoginView()
-//                    }
+                    // Handle navigation
+                    if viewModel.navigateToLogin{
+                        LoginView()
+                    }
                 }
             }
+            .navigationTitle("")
             .navigationBarHidden(true)
         }
         .onAppear {
