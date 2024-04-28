@@ -9,6 +9,7 @@ import SwiftUI
 
 struct UploadView: View {
     @ObservedObject var viewModel = UploadViewModel()
+    @Environment(\.presentationMode) var presentationMode
     @State private var isShowingImagePicker = false  // State to manage the presentation of the image picker
     let frustuleShapes = ["Elliptical", "Linear", "Triangular", "Circular"]  // Example shapes
 
@@ -52,18 +53,28 @@ struct UploadView: View {
                     }
                 }
             }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }) {
+                        HStack {
+                            Image(systemName: "arrow.left").foregroundColor(.black)
+                        }
+                    }
+                }
+            }
             .alert(isPresented: $viewModel.isShowingErrorAlert) {
                 Alert(title: Text("Error"), message: Text(viewModel.errorMessage), dismissButton: .default(Text("OK")))
             }
-            .navigationTitle("Upload Diatom Data")
-            .navigationBarHidden(true)
-            .background(Color("BackgroundColor"))
             .sheet(isPresented: $isShowingImagePicker) {  // Present the image picker
                 ImagePicker(sourceType: .photoLibrary) { image in
                     viewModel.image = Image(uiImage: image)  // Update the view model with the selected image
                 }
             }
         }
+        .navigationTitle("")
+        .navigationBarHidden(true)
     }
 }
 

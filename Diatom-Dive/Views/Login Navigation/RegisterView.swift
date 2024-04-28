@@ -103,17 +103,17 @@ struct RegisterView: View {
         }
     }
         
-        private var backButton: some View {
-            Button(action: {
-                isShowingLogin = true
-            }) {
-                HStack {
-                    Image(systemName: "arrow.left")
-                }
-                .foregroundColor(.primary)
-                .imageScale(.large)
+    private var backButton: some View {
+        Button(action: {
+            isShowingLogin = true
+        }) {
+            HStack {
+                Image(systemName: "arrow.left")
             }
+            .foregroundColor(.primary)
+            .imageScale(.large)
         }
+    }
 
     private var title: some View {
         Text("Create Your Account")
