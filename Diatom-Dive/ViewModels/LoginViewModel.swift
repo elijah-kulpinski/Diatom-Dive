@@ -13,6 +13,7 @@ import Foundation
 import SwiftUI
 
 class LoginViewModel: ObservableObject {
+    @Published var username: String = ""
     @Published var email: String = ""
     @Published var password: String = ""
     @Published var firstName: String = ""
@@ -50,15 +51,15 @@ class LoginViewModel: ObservableObject {
 }
 
 extension LoginViewModel {
-    func registerWithEmail(email: String, password: String, firstName: String, lastName: String) {
-        FirebaseService.shared.registerWithEmail(email: email, password: password, firstName: firstName, lastName: lastName) { result in
+    
+    // Enhanced registration function to include username along with first and last names
+    func registerWithEmail(email: String, password: String, username: String, firstName: String, lastName: String) {
+        FirebaseService.shared.registerWithEmail(email: email, password: password, username: username, firstName: firstName, lastName: lastName) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success():
-                    self.email = ""
-                    self.password = ""
-                    self.firstName = ""
-                    self.lastName = ""
+                    // Clear user data after successful registration
+                    self.clearUserData()
                     self.alertMessage = "Registration Successful. You can now log in."
                     self.showAlert = true
                 case .failure(let error):
@@ -69,13 +70,29 @@ extension LoginViewModel {
         }
     }
 
+    // Function to validate password strength
+    func isPasswordValid(_ password: String) -> Bool {
+        let passwordRegex = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$"
+        return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: password)
+    }
+    
+    // Function to check if the username is unique
+    func checkUsernameUnique(username: String, completion: @escaping (Bool) -> Void) {
+        FirebaseService.shared.usernameExists(username: username) { exists in
+            DispatchQueue.main.async {
+                completion(!exists)
+            }
+        }
+    }
+
+    // Function to handle password reset requests
     func resetPassword() {
         FirebaseService.shared.resetPassword(email: self.email) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success():
                     self.email = ""
-                    self.alertMessage = "Check your email to reset your password. "
+                    self.alertMessage = "Check your email to reset your password."
                     self.showAlert = true
                 case .failure(let error):
                     self.alertMessage = error.localizedDescription
@@ -83,5 +100,14 @@ extension LoginViewModel {
                 }
             }
         }
+    }
+
+    // Clear user data from the ViewModel
+    private func clearUserData() {
+        email = ""
+        password = ""
+        username = ""
+        firstName = ""
+        lastName = ""
     }
 }
